@@ -1,0 +1,214 @@
+package example;
+
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import jade.core.AID;
+import jade.core.Agent;
+import jade.core.Location;
+import jade.core.behaviours.OneShotBehaviour;
+import jade.lang.acl.ACLMessage;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class WorkerAgent extends Agent {
+
+	public Location destination;
+	public String masterName;
+	public int state = 0;
+	
+	protected void setup()
+	{
+		//System.out.println("Worker agent started...");
+		
+		Object[] args = getArguments();
+		this.destination = (Location)args[0];
+		this.masterName = (String)args[1];
+		
+		this.addBehaviour(new OneShotBehaviour(this){
+
+			public void action() 
+			{
+				//System.out.println("Worker Agent: My state is " + state);
+				state++;
+				//System.out.println("Worker agent:  migrating...");
+				myAgent.doMove(destination);
+				
+				//System.out.println("Worker Agent: My state is " + state);
+				state++;
+			}
+			
+		});
+
+		this.addBehaviour(new OneShotBehaviour(this){
+
+			public void action() 
+			{
+				//System.out.println("Worker agent " + "" + "successfully migrated...");
+				//System.out.println("Worker Agent: My state is " + state);			
+				
+			}
+			
+		});
+		
+		this.addBehaviour(new OneShotBehaviour(this){
+			
+			  public void action()		  			  
+			  {			  
+			   int agentsgiasfalma=20;
+			   int agentsgiarcs=10;
+			   int containersize=5;
+			   int containers=(agentsgiasfalma+agentsgiarcs)/containersize;	
+
+				try{			  			  				  				  
+				System.out.println("I am locally " + myAgent.getLocalName());
+				String s=myAgent.getLocalName();
+				s=s.trim();	
+				System.out.println("to here einai" + myAgent.here());			
+				Location loc=myAgent.here();
+				String other=""+loc;
+				
+				char c=other.charAt(10);				
+				int a=Character.getNumericValue(c);
+				
+				String other1=myAgent.getLocalName();
+				
+				char c1=other1.charAt(other1.length()-1);
+				char c2=other1.charAt(other1.length()-2);
+				int ascii_c2=(int) c2;
+				
+				int a1=Character.getNumericValue(c1);
+				if (ascii_c2>=48 && ascii_c2<=57)
+				{
+				
+					a1=a1+Character.getNumericValue(c2)*10;
+					
+				}				
+				int index=a1/containers;
+				double[] ysfalma = {0.01, 0.0616, 0.1132, 0.1647, 0.2163, 0.2679, 0.3195, 0.3711, 0.4226, 0.4742, 0.5258, 0.5774, 0.6289, 0.6805, 0.7321, 0.7837, 0.8353, 0.8868, 0.9384, 0.99};
+				
+				double[] yrcs = {0.8, 0.8222, 0.8444, 0.8667, 0.8889, 0.9111, 0.9333, 0.9556, 0.9778, 1};			
+
+				double help;
+				String entolh;
+				
+				if (a1%containers==0){index=index-1;}
+							
+				if (a<=containers-agentsgiarcs/containersize){
+					
+					entolh="sfalma";
+					System.out.println("ektelw gia sfalma ");
+					s="C:\\Users\\xrhstos\\Desktop\\kaklamanh_2\\foldersfalma\\sfalma\\distrib\\sfalma.exe";					
+					System.out.println("agent:" + a1 + ", " + other.substring(0,11) + ", 8esh " + index );
+					help=ysfalma[(a-1)*containersize+index];
+
+					
+					}
+			    
+				else{
+					
+					System.out.println("ektelw gia rcs ");
+					entolh="rcs";
+
+					s="C:\\Users\\xrhstos\\Desktop\\kaklamanh_2\\folderrcs\\rcs\\distrib\\rcs.exe";		
+
+							
+							System.out.println("agent:" + a1 + ", " + other.substring(0,11) + ", 8esh " + index );
+	
+							help=yrcs[containersize*(a-agentsgiasfalma/containersize-1)+index];				
+					}
+				
+				s=s + " " + help;	
+				System.out.println("trexw to path :" + s);
+				Process process = Runtime.getRuntime().exec(s);				
+			    process.waitFor();			    
+			    if (entolh=="rcs"){
+			    
+			    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			    File results = new File("results-rcs.txt");			
+			    if(!results.exists()){
+			    	results.createNewFile();
+					    }
+				FileWriter fileWriter = new FileWriter(results, true);
+				BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+										
+			    String line = "";
+			    while ((line = reader.readLine()) != null) {
+			    	
+
+			    	bufferedWriter.write("agent:" + a1 + ", " + other.substring(0,11) + ", 8esh " + index + ", " + entolh + " me eisodo " + help + " -> " + line.trim() + "\r\n");
+	      
+			    
+			    }	
+				  bufferedWriter.close();			
+					 		    
+			  }
+			    
+			    if (entolh=="sfalma"){
+				    
+				    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+				    File results = new File("results-sfalma.txt");			
+				    if(!results.exists()){
+				    	results.createNewFile();
+						    }
+					FileWriter fileWriter = new FileWriter(results, true);
+					BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);						
+				    String line = "";
+				    while ((line = reader.readLine()) != null) {				    	
+
+				    	bufferedWriter.write("agent:" + a1 + ", " + other.substring(0,11) + ", 8esh " + index + ", " + entolh + " me eisodo " + help + " -> " + line.trim() + "\r\n");
+	      				    
+				    }	
+					  bufferedWriter.close();									 		    
+				  }
+			    
+				}				
+			    catch(IOException e1) {
+	                System.out.println(e1.getMessage());
+	                e1.printStackTrace();
+	            }catch(Exception e2) {
+	                System.out.println(e2.getMessage());
+	                e2.printStackTrace();
+	            }  
+	
+			  }
+			  });
+				
+		this.addBehaviour(new OneShotBehaviour(this){
+			
+			public void action()
+			{
+				System.out.println("Worker Agent: Press \"Enter\" to send message to master agent...");
+				try 
+				{
+					(new DataInputStream(System.in)).readByte();			
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
+				ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
+				String receiver = ((WorkerAgent)myAgent).masterName;
+				msg.addReceiver(new AID(receiver,AID.ISGUID));
+				msg.setContent("o " + myAgent.getName() + "egkatasta8hke epituxws ");
+				myAgent.send(msg);							
+			}});
+			
+		};
+		
+	protected void beforeMove()
+	{
+		//System.out.println("============================================");
+		//System.out.println("Inside beforeMove: before worker agent migration...");
+		//System.out.println("============================================");
+	}
+	protected void afterMove()
+	{
+		//System.out.println("============================================");
+		//System.out.println("Inside afterMove: after worker agent migration");
+		//System.out.println("============================================");
+	}
+	
+}
