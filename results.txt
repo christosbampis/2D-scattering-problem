@@ -1,0 +1,48 @@
+agent:1, Container-1, 8esh 0, sfalma me eisodo 0.01 -> {Warning: Matrix is close to singular or badly scaled.
+agent:1, Container-1, 8esh 0, sfalma me eisodo 0.01 -> Results may be inaccurate. RCOND = 3.572747e-018.}
+agent:1, Container-1, 8esh 0, sfalma me eisodo 0.01 -> > In second_part at 46
+agent:1, Container-1, 8esh 0, sfalma me eisodo 0.01 -> In SCRIPTGIA2SFALMA at 26
+agent:1, Container-1, 8esh 0, sfalma me eisodo 0.01 -> 5.882072e-001
+agent:7, Container-1, 8esh 1, sfalma me eisodo 0.0616 -> {Warning: Matrix is close to singular or badly scaled.
+agent:7, Container-1, 8esh 1, sfalma me eisodo 0.0616 -> Results may be inaccurate. RCOND = 6.798174e-018.}
+agent:7, Container-1, 8esh 1, sfalma me eisodo 0.0616 -> > In second_part at 46
+agent:7, Container-1, 8esh 1, sfalma me eisodo 0.0616 -> In SCRIPTGIA2SFALMA at 26
+agent:7, Container-1, 8esh 1, sfalma me eisodo 0.0616 -> 3.725700e-003
+agent:13, Container-1, 8esh 2, sfalma me eisodo 0.1132 -> {Warning: Matrix is close to singular or badly scaled.
+agent:13, Container-1, 8esh 2, sfalma me eisodo 0.1132 -> Results may be inaccurate. RCOND = 8.186811e-018.}
+agent:13, Container-1, 8esh 2, sfalma me eisodo 0.1132 -> > In second_part at 46
+agent:13, Container-1, 8esh 2, sfalma me eisodo 0.1132 -> In SCRIPTGIA2SFALMA at 26
+agent:13, Container-1, 8esh 2, sfalma me eisodo 0.1132 -> 3.997432e-005
+agent:19, Container-1, 8esh 3, sfalma me eisodo 0.1647 -> {Warning: Matrix is close to singular or badly scaled.
+agent:19, Container-1, 8esh 3, sfalma me eisodo 0.1647 -> Results may be inaccurate. RCOND = 1.088070e-017.}
+agent:19, Container-1, 8esh 3, sfalma me eisodo 0.1647 -> > In second_part at 46
+agent:19, Container-1, 8esh 3, sfalma me eisodo 0.1647 -> In SCRIPTGIA2SFALMA at 26
+agent:19, Container-1, 8esh 3, sfalma me eisodo 0.1647 -> 1.264720e-007
+agent:25, Container-1, 8esh 4, sfalma me eisodo 0.2163 -> 3.931681e-009
+agent:2, Container-3, 8esh 0, sfalma me eisodo 0.5258 -> 1.430201e-007
+agent:8, Container-3, 8esh 1, sfalma me eisodo 0.5774 -> 5.250277e-007
+agent:14, Container-3, 8esh 2, sfalma me eisodo 0.6289 -> 2.222348e-006
+agent:20, Container-3, 8esh 3, sfalma me eisodo 0.6805 -> 1.024737e-005
+agent:26, Container-3, 8esh 4, sfalma me eisodo 0.7321 -> 4.997765e-005
+agent:3, Container-2, 8esh 0, sfalma me eisodo 0.2679 -> 5.002921e-009
+agent:9, Container-2, 8esh 1, sfalma me eisodo 0.3195 -> 7.209893e-009
+agent:15, Container-2, 8esh 2, sfalma me eisodo 0.3711 -> 1.139325e-008
+agent:21, Container-2, 8esh 3, sfalma me eisodo 0.4226 -> 2.098595e-008
+agent:27, Container-2, 8esh 4, sfalma me eisodo 0.4742 -> 4.832422e-008
+agent:5, Container-4, 8esh 0, sfalma me eisodo 0.7837 -> 2.867577e-004
+agent:11, Container-4, 8esh 1, sfalma me eisodo 0.8353 -> 2.107137e-003
+agent:17, Container-4, 8esh 2, sfalma me eisodo 0.8868 -> 1.646948e-002
+agent:23, Container-4, 8esh 3, sfalma me eisodo 0.9384 -> 5.537867e-002
+agent:29, Container-4, 8esh 4, sfalma me eisodo 0.99 -> 7.807562e-001
+results-rcs.txt
+agent:4, Container-5, 8esh 0, rcs me eisodo 0.8 -> 20.461744 13.949514 7.153076 2.869425 1.562183 1.879187 2.299133 2.230956 1.916764 1.742334 1.799071 1.939010 2.021639 2.033329 2.035255 2.071684 2.138799 2.210111 2.268072 2.312667 2.352070 2.392022 2.432573 2.470602 2.503195 2.529128 2.548538 2.562014 2.569990 2.572639
+agent:10, Container-5, 8esh 1, rcs me eisodo 0.8222 -> 21.318224 14.236424 7.025760 2.705149 1.578933 2.014948 2.393778 2.231025 1.890617 1.762933 1.866792 2.008709 2.065268 2.060850 2.070253 2.124051 2.201349 2.271803 2.324793 2.367486 2.409615 2.454231 2.498408 2.538002 2.570788 2.596652 2.616352 2.630461 2.639056 2.641957
+agent:16, Container-5, 8esh 2, rcs me eisodo 0.8444 -> 22.181478 14.501373 6.878406 2.549165 1.618501 2.156773 2.472268 2.215972 1.868149 1.797863 1.940885 2.071619 2.099371 2.086550 2.110770 2.181885 2.264343 2.330130 2.378435 2.421916 2.468866 2.518294 2.564941 2.604935 2.637477 2.663515 2.684010 2.699166 2.708596 2.711809
+agent:22, Container-5, 8esh 3, rcs me eisodo 0.8667 -> 23.054657 14.744639 6.711838 2.403535 1.680714 2.301446 2.532857 2.188639 1.853376 1.847155 2.017708 2.125376 2.125695 2.113957 2.158252 2.243708 2.325692 2.384706 2.430431 2.477713 2.530613 2.583948 2.631605 2.671236 2.703681 2.730453 2.752181 2.768515 2.778716 2.782188
+agent:28, Container-5, 8esh 4, rcs me eisodo 0.8889 -> 23.929147 14.963364 6.529307 2.272070 1.763996 2.443762 2.573864 2.152919 1.849844 1.908881 2.092416 2.168158 2.146743 2.145836 2.212174 2.306505 2.383051 2.435480 2.481983 2.535456 2.594059 2.649637 2.697070 2.736270 2.769270 2.797392 2.820527 2.837827 2.848494 2.852091
+agent:6, Container-6, 8esh 0, rcs me eisodo 0.9111 -> 24.808067 15.158104 6.331981 2.156359 1.867070 2.580575 2.595344 2.112772 1.859976 1.980651 2.161507 2.200273 2.166025 2.184429 2.271401 2.367951 2.435869 2.484031 2.534958 2.595747 2.658619 2.714651 2.761305 2.800687 2.835109 2.864996 2.889403 2.907263 2.918031 2.921614
+agent:12, Container-6, 8esh 1, rcs me eisodo 0.9333 -> 25.690637 15.328366 6.121845 2.058414 1.987986 2.708317 2.597915 2.072437 1.885230 2.059040 2.221823 2.223088 2.187053 2.230673 2.333666 2.425852 2.484408 2.532186 2.590514 2.658173 2.723148 2.778310 2.824472 2.865065 2.901619 2.933313 2.958628 2.976654 2.987288 2.990784
+agent:18, Container-6, 8esh 2, rcs me eisodo 0.9556 -> 26.580066 15.474345 5.899957 1.979657 2.125040 2.824249 2.582924 2.035937 1.926145 2.140476 2.271412 2.239144 2.213101 2.284460 2.396504 2.479073 2.530107 2.582012 2.649306 2.722002 2.786888 2.840751 2.887421 2.930259 2.969222 3.002393 3.028198 3.046198 3.056705 3.060149
+agent:24, Container-6, 8esh 3, rcs me eisodo 0.9778 -> 27.467591 15.594423 5.670465 1.922221 2.274306 2.924534 2.552719 2.007478 1.981534 2.220116 2.308885 2.251562 2.246269 2.343748 2.456653 2.526859 2.574445 2.634446 2.710355 2.785378 2.848654 2.901825 2.950324 2.996023 3.037109 3.071190 3.097196 3.115259 3.125876 3.129381
+agent:30, Container-6, 8esh 4, rcs me eisodo 1.0 -> 28.356415 15.689096 5.434601 1.886805 2.433408 3.007467 2.510126 1.990224 2.049679 2.294440 2.334831 2.264026 2.287867 2.406318 2.512259 2.570272 2.619690 2.690301 2.772799 2.847440 2.908721 2.962588 3.014077 3.062643 3.105178 3.139637 3.165804 3.184232 3.195286 3.198987
+
