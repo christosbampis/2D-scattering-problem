@@ -1,0 +1,115 @@
+package example;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.File;
+import java.io.FileInputStream;
+import jade.content.lang.sl.SLCodec;
+import jade.core.Agent;
+import jade.core.behaviours.OneShotBehaviour;
+import jade.core.behaviours.SequentialBehaviour;
+import jade.domain.FIPANames;
+import jade.domain.mobility.MobilityOntology;
+import jade.lang.acl.ACLMessage;
+import jade.wrapper.AgentContainer;
+import jade.wrapper.AgentController;
+import jade.wrapper.StaleProxyException;
+
+import jade.core.Agent;
+import jade.core.behaviours.*;
+import jade.lang.acl.*;
+import java.io.*;
+
+
+public class MasterAgent extends Agent {
+
+	private Object[] availableLocations;
+	
+	protected void setup()
+	{
+		System.out.println("Master agent has started...");
+		
+		//register the SL0 content language
+		getContentManager().registerLanguage(new SLCodec(), FIPANames.ContentLanguage.FIPA_SL0);
+		// register the mobility ontology
+		getContentManager().registerOntology(MobilityOntology.getInstance());
+		
+		System.out.println("Master Agent: Press \"Enter\" to continue execution...");
+		
+		try 
+		{
+			(new DataInputStream(System.in)).readByte();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		SequentialBehaviour seq = new SequentialBehaviour();		
+		seq.addSubBehaviour(new GetAvailableContainersBehaviour(this));	
+	    seq.addSubBehaviour(new OneShotBehaviour(this){
+	    		
+			public void action()
+	    	{	
+				int agentsgiasfalma=20;
+				int agentsgiarcs=10;
+				int containersize=5;
+				int numberofcontainers=(agentsgiasfalma+agentsgiarcs)/containersize;	
+				
+				Object[] args = new Object[2];						
+				int k=1;
+				
+				AgentContainer container = myAgent.getContainerController();
+				
+				for (int j=1; j<=numberofcontainers; j=j+1){
+					
+				for (int i = k; i <= agentsgiasfalma+agentsgiarcs; i = i + numberofcontainers) {
+					
+					args[0] = ((MasterAgent)myAgent).getAvailableLocations()[j];
+					args[1] = myAgent.getName();
+					try{
+						AgentController controller = container.createNewAgent("Worker Agent" + i,"example.WorkerAgent",args);
+						controller.start();
+					}catch(StaleProxyException e)
+					{
+						e.printStackTrace();
+					}				
+					//System.out.println("Master Agent: Waiting for message from worker agent...");					
+					ACLMessage msg = myAgent.blockingReceive();				
+					System.out.println(msg.getContent());		
+				     }	
+				
+				k=k+1;
+				
+				     }
+				
+				for (int i = 1; i < ((MasterAgent)myAgent).getAvailableLocations().length; i = i + 1) {
+					
+					System.out.println(((MasterAgent)myAgent).getAvailableLocations()[i]);
+							
+				     }
+			
+	    }
+	    			    	
+	    });
+		
+	    this.addBehaviour(seq);
+	}
+
+	
+	
+	
+	public void setAvailableLocations(Object[] locations)
+	{
+		this.availableLocations = locations;
+	}
+
+	public Object[] getAvailableLocations()
+	{
+		return availableLocations;
+	}
+	
+	protected void takeDown()
+	{
+		
+	}
+	
+}
